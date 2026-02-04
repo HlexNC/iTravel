@@ -1,0 +1,41 @@
+{
+  "name": "iTravel (Android Build)",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteUser": "vscode",
+
+  "containerEnv": {
+    "ANDROID_SDK_ROOT": "/opt/android-sdk",
+    "ANDROID_HOME": "/opt/android-sdk",
+    "JAVA_HOME": "/usr/lib/jvm/java-17-openjdk-amd64",
+    "GRADLE_USER_HOME": "/home/vscode/.gradle"
+  },
+
+  "mounts": [
+    "source=itravel-gradle-cache,target=/home/vscode/.gradle,type=volume",
+    "source=itravel-android-cache,target=/home/vscode/.android,type=volume"
+  ],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "redhat.java",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-17",
+            "path": "/usr/lib/jvm/java-17-openjdk-amd64"
+          }
+        ],
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+
+  "postCreateCommand": "chmod +x ./gradlew || true && ./gradlew --version && ./gradlew tasks --all"
+}
