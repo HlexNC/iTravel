@@ -10,16 +10,6 @@
         android:label="DiscoverFragment" />
         
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.itravel.app.fragments.SearchFragment"
-        android:label="SearchFragment" />
-        
-    <fragment
-        android:id="@+id/addReviewFragment"
-        android:name="com.itravel.app.fragments.AddReviewFragment"
-        android:label="AddReviewFragment" />
-        
-    <fragment
         android:id="@+id/feedFragment"
         android:name="com.itravel.app.fragments.FeedFragment"
         android:label="FeedFragment" />

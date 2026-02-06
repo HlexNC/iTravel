@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import android.content.Intent;
+import com.itravel.app.activities.LocationDetailActivity;
 import com.itravel.app.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,7 +44,14 @@ public class DiscoverFragment extends Fragment implements OnMapReadyCallback {
 
         // Add a marker in Deggendorf (Example) and move the camera
         LatLng deggendorf = new LatLng(48.829, 12.961);
-        mMap.addMarker(new MarkerOptions().position(deggendorf).title("Marker in Deggendorf"));
+        mMap.addMarker(new MarkerOptions().position(deggendorf).title("Deggendorf"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(deggendorf, 12));
+
+        mMap.setOnMarkerClickListener(marker -> {
+            Intent intent = new Intent(getContext(), LocationDetailActivity.class);
+            intent.putExtra("location_name", marker.getTitle());
+            startActivity(intent);
+            return true;
+        });
     }
 }
