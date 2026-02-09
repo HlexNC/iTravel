@@ -3,13 +3,13 @@
     <item
         android:id="@+id/discoverFragment"
         android:title="@string/nav_discover"
-        android:icon="@drawable/ic_launcher_foreground" />
+        android:icon="@drawable/ic_nav_discover" />
     <item
         android:id="@+id/feedFragment"
         android:title="@string/nav_feed"
-        android:icon="@drawable/ic_launcher_foreground" />
+        android:icon="@drawable/ic_nav_feed" />
     <item
         android:id="@+id/profileFragment"
         android:title="@string/nav_profile"
-        android:icon="@drawable/ic_launcher_foreground" />
+        android:icon="@drawable/ic_nav_profile" />
 </menu>

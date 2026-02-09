@@ -44,7 +44,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
 
         Glide.with(holder.itemView.getContext())
                 .load(item.getImageUrl())
-                .placeholder(R.drawable.ic_launcher_foreground)
+                .placeholder(R.drawable.ic_empty_state)
                 .centerCrop()
                 .into(holder.ivFeedImage);
 
