@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Primary -->
     <color name="teal_primary">#1E7B7E</color>
-    <color name="teal_secondary">#2A9D8F</color>
+    <color name="teal_primary_dark">#145557</color>
+    <color name="teal_primary_light">#4DA6A8</color>
+    <color name="teal_primary_container">#B2DFDB</color>
+    <color name="on_primary_container">#00332F</color>
+
+    <!-- Secondary -->
     <color name="orange_accent">#F4A261</color>
+    <color name="orange_accent_dark">#D17B2F</color>
+    <color name="orange_accent_container">#FDEBD0</color>
+    <color name="on_secondary_container">#5D3A1A</color>
+
+    <!-- Tertiary -->
+    <color name="teal_secondary">#2A9D8F</color>
+    <color name="teal_tertiary_container">#C8ECE5</color>
+
+    <!-- Error / Action -->
     <color name="coral_action">#E76F51</color>
+    <color name="coral_action_container">#FDDAD1</color>
+
+    <!-- Neutrals -->
     <color name="dark_slate">#264653</color>
     <color name="off_white">#F1FAEE</color>
+    <color name="surface">#FAFDF7</color>
+    <color name="on_surface">#1A1C19</color>
+    <color name="surface_variant">#E0E4DD</color>
+    <color name="on_surface_variant">#44483F</color>
+    <color name="outline">#74796D</color>
+    <color name="outline_variant">#C4C8BB</color>
+
+    <!-- Utility -->
     <color name="light_blue">#8AB4F8</color>
-    
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
+
+    <!-- Scrims / Overlays -->
+    <color name="scrim_light">#40000000</color>
+    <color name="scrim_medium">#60000000</color>
+    <color name="scrim_heavy">#80000000</color>
+
+    <!-- Status -->
+    <color name="success_green">#4CAF50</color>
+    <color name="warning_amber">#FFC107</color>
+    <color name="info_blue">#2196F3</color>
+    <color name="rating_star">#FFB300</color>
 </resources>
