@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTravel V2 — Design System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            /* Primary */
+            --teal-primary: #1E7B7E;
+            --teal-primary-dark: #145557;
+            --teal-primary-light: #4DA6A8;
+            --teal-primary-container: #B2DFDB;
+            --on-primary-container: #00332F;
+
+            /* Secondary */
+            --orange-accent: #F4A261;
+            --orange-accent-dark: #D17B2F;
+            --orange-accent-container: #FDEBD0;
+            --on-secondary-container: #5D3A1A;
+
+            /* Tertiary */
+            --teal-secondary: #2A9D8F;
+            --teal-tertiary-container: #C8ECE5;
+
+            /* Error / Action */
+            --coral-action: #E76F51;
+            --coral-action-container: #FDDAD1;
+
+            /* Neutrals */
+            --dark-slate: #264653;
+            --off-white: #F1FAEE;
+            --surface: #FAFDF7;
+            --on-surface: #1A1C19;
+            --surface-variant: #E0E4DD;
+            --on-surface-variant: #44483F;
+            --outline: #74796D;
+            --outline-variant: #C4C8BB;
+
+            /* Utility */
+            --light-blue: #8AB4F8;
+            --success-green: #4CAF50;
+            --warning-amber: #FFC107;
+            --info-blue: #2196F3;
+            --rating-star: #FFB300;
+
+            /* Scrims */
+            --scrim-light: rgba(0,0,0,0.25);
+            --scrim-medium: rgba(0,0,0,0.38);
+            --scrim-heavy: rgba(0,0,0,0.50);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--surface);
+            color: var(--on-surface);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-slate) 0%, var(--teal-primary) 50%, var(--teal-secondary) 100%);
+            color: white;
+            padding: 64px 32px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 48px; font-weight: 300; letter-spacing: -0.5px; }
+        .hero p { font-size: 16px; opacity: 0.85; margin-top: 8px; }
+        .hero .version {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px 16px;
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 28px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Layout */
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+        section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--outline-variant);
+        }
+        section:last-child { border-bottom: none; }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--dark-slate);
+            margin-bottom: 8px;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--on-surface-variant);
+            margin-bottom: 32px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--on-surface-variant);
+            margin: 32px 0 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Color Swatches */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+        .color-card {
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+        }
+        .color-swatch {
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+            padding: 12px;
+        }
+        .color-info {
+            padding: 12px;
+        }
+        .color-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--on-surface);
+        }
+        .color-hex {
+            font-size: 12px;
+            color: var(--on-surface-variant);
+            font-family: monospace;
+        }
+        .color-role {
+            font-size: 11px;
+            color: var(--outline);
+            margin-top: 2px;
+        }
+
+        /* Typography */
+        .type-row {
+            display: flex;
+            align-items: baseline;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--outline-variant);
+            gap: 24px;
+        }
+        .type-row:last-child { border-bottom: none; }
+        .type-meta {
+            flex: 0 0 160px;
+            text-align: right;
+        }
+        .type-meta .name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--teal-primary);
+        }
+        .type-meta .spec {
+            font-size: 11px;
+            color: var(--outline);
+            font-family: monospace;
+        }
+        .type-sample {
+            flex: 1;
+            color: var(--on-surface);
+        }
+
+        /* Spacing */
+        .spacing-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: flex-end;
+        }
+        .spacing-item {
+            text-align: center;
+        }
+        .spacing-block {
+            background: var(--teal-primary-container);
+            border: 2px solid var(--teal-primary);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .spacing-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--on-surface);
+        }
+        .spacing-value {
+            font-size: 11px;
+            color: var(--outline);
+            font-family: monospace;
+        }
+
+        /* Radii */
+        .radius-grid {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .radius-item {
+            text-align: center;
+        }
+        .radius-box {
+            width: 96px;
+            height: 96px;
+            background: var(--teal-primary-container);
+            border: 2px solid var(--teal-primary);
+            margin-bottom: 8px;
+        }
+        .radius-label {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .radius-value {
+            font-size: 11px;
+            color: var(--outline);
+            font-family: monospace;
+        }
+
+        /* Elevation */
+        .elevation-grid {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .elevation-card {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .elevation-card .label { font-size: 13px; font-weight: 500; }
+        .elevation-card .value { font-size: 11px; color: var(--outline); font-family: monospace; }
+
+        /* Components */
+        .component-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 24px;
+            border-radius: 12px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--teal-primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--teal-primary-dark); }
+        .btn-secondary {
+            background: var(--orange-accent-container);
+            color: var(--on-secondary-container);
+        }
+        .btn-secondary:hover { background: #fae0b8; }
+        .btn-outlined {
+            background: transparent;
+            color: var(--teal-primary);
+            border: 1px solid var(--teal-primary);
+        }
+        .btn-outlined:hover { background: rgba(30,123,126,0.08); }
+        .btn-text {
+            background: transparent;
+            color: var(--teal-primary);
+            padding: 0 12px;
+        }
+        .btn-text:hover { background: rgba(30,123,126,0.08); }
+        .btn-coral {
+            background: var(--coral-action);
+            color: white;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .card-outlined {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--outline-variant);
+            overflow: hidden;
+        }
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-secondary) 100%);
+            position: relative;
+        }
+        .card-img .gradient-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+        }
+        .card-img .card-title-overlay {
+            position: absolute;
+            bottom: 12px;
+            left: 16px;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .card-body { padding: 16px; }
+        .card-body p { font-size: 14px; color: var(--on-surface-variant); }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* Chips */
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            height: 36px;
+            padding: 0 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid var(--outline-variant);
+            background: var(--surface);
+            color: var(--on-surface-variant);
+            cursor: pointer;
+            transition: all 0.15s;
+            gap: 6px;
+        }
+        .chip:hover { background: var(--surface-variant); }
+        .chip.selected {
+            background: var(--teal-primary-container);
+            color: var(--on-primary-container);
+            border-color: var(--teal-primary);
+        }
+        .chip-icon {
+            font-size: 18px;
+        }
+
+        /* Text Fields */
+        .text-field {
+            position: relative;
+            margin-bottom: 16px;
+        }
+        .text-field input {
+            width: 100%;
+            max-width: 320px;
+            height: 56px;
+            padding: 16px 16px 0;
+            border: 1px solid var(--outline);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            background: transparent;
+            color: var(--on-surface);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .text-field input:focus { border-color: var(--teal-primary); border-width: 2px; }
+        .text-field label {
+            position: absolute;
+            left: 16px;
+            top: 8px;
+            font-size: 12px;
+            color: var(--on-surface-variant);
+            pointer-events: none;
+        }
+
+        /* Bottom Nav Preview */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: white;
+            border-radius: 16px;
+            padding: 8px 0;
+            max-width: 400px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4px 20px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            gap: 4px;
+        }
+        .nav-item.active {
+            background: var(--teal-primary-container);
+        }
+        .nav-item .nav-icon { font-size: 24px; color: var(--on-surface-variant); }
+        .nav-item.active .nav-icon { color: var(--teal-primary); }
+        .nav-item .nav-label { font-size: 12px; font-weight: 500; color: var(--on-surface-variant); }
+        .nav-item.active .nav-label { color: var(--teal-primary); }
+
+        /* Profile Header Preview */
+        .profile-preview {
+            background: var(--teal-primary-container);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            max-width: 360px;
+        }
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: var(--dark-slate);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 400;
+            margin: 0 auto 16px;
+        }
+        .profile-name { font-size: 24px; font-weight: 400; color: var(--on-surface); }
+        .profile-email { font-size: 14px; color: var(--on-surface-variant); margin-top: 4px; }
+        .stats-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .stat-card {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 16px 8px;
+            text-align: center;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+        }
+        .stat-value { font-size: 24px; font-weight: 500; color: var(--teal-primary); }
+        .stat-label { font-size: 12px; font-weight: 500; color: var(--on-surface-variant); margin-top: 2px; }
+        .stat-card.rating .stat-value { color: var(--rating-star); }
+
+        /* Rating */
+        .rating { display: flex; gap: 4px; }
+        .star { font-size: 24px; color: var(--outline-variant); }
+        .star.filled { color: var(--rating-star); }
+
+        /* Utility */
+        .code {
+            font-family: monospace;
+            font-size: 12px;
+            background: var(--surface-variant);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { padding: 48px 20px; }
+            .hero h1 { font-size: 36px; }
+            .type-row { flex-direction: column; gap: 4px; }
+            .type-meta { text-align: left; flex: auto; }
+            .color-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+    <h1>iTravel</h1>
+    <p>Design System &amp; Style Guide</p>
+    <span class="version">V2</span>
+</header>
+
+<div class="container">
+
+    <!-- ===================== COLORS ===================== -->
+    <section>
+        <h2>Color Palette</h2>
+        <p class="section-subtitle">Material Design 3 color roles mapped to the iTravel brand palette</p>
+
+        <h3>Primary</h3>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background:#1E7B7E;"></div>
+                <div class="color-info">
+                    <div class="color-name">Teal Primary</div>
+                    <div class="color-hex">#1E7B7E</div>
+                    <div class="color-role">colorPrimary</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#145557;"></div>
+                <div class="color-info">
+                    <div class="color-name">Teal Primary Dark</div>
+                    <div class="color-hex">#145557</div>
+                    <div class="color-role">statusBarColor</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#4DA6A8;"></div>
+                <div class="color-info">
+                    <div class="color-name">Teal Primary Light</div>
+                    <div class="color-hex">#4DA6A8</div>
+                    <div class="color-role">accent / highlights</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#B2DFDB;"></div>
+                <div class="color-info">
+                    <div class="color-name">Teal Primary Container</div>
+                    <div class="color-hex">#B2DFDB</div>
+                    <div class="color-role">colorPrimaryContainer</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#00332F; color:white;"></div>
+                <div class="color-info">
+                    <div class="color-name">On Primary Container</div>
+                    <div class="color-hex">#00332F</div>
+                    <div class="color-role">colorOnPrimaryContainer</div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Secondary</h3>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background:#F4A261;"></div>
+                <div class="color-info">
+                    <div class="color-name">Orange Accent</div>
+                    <div class="color-hex">#F4A261</div>
+                    <div class="color-role">colorSecondary</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#D17B2F;"></div>
+                <div class="color-info">
+                    <div class="color-name">Orange Accent Dark</div>
+                    <div class="color-hex">#D17B2F</div>
+                    <div class="color-role">pressed state</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#FDEBD0;"></div>
+                <div class="color-info">
+                    <div class="color-name">Orange Container</div>
+                    <div class="color-hex">#FDEBD0</div>
+                    <div class="color-role">colorSecondaryContainer</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#5D3A1A; color:white;"></div>
+                <div class="color-info">
+                    <div class="color-name">On Secondary Container</div>
+                    <div class="color-hex">#5D3A1A</div>
+                    <div class="color-role">colorOnSecondaryContainer</div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Tertiary</h3>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background:#2A9D8F;"></div>
+                <div class="color-info">
+                    <div class="color-name">Teal Secondary</div>
+                    <div class="color-hex">#2A9D8F</div>
+                    <div class="color-role">colorTertiary</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#C8ECE5;"></div>
+                <div class="color-info">
+                    <div class="color-name">Tertiary Container</div>
+                    <div class="color-hex">#C8ECE5</div>
+                    <div class="color-role">colorTertiaryContainer</div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Error / Action</h3>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background:#E76F51;"></div>
+                <div class="color-info">
+                    <div class="color-name">Coral Action</div>
+                    <div class="color-hex">#E76F51</div>
+                    <div class="color-role">colorError</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#FDDAD1;"></div>
+                <div class="color-info">
+                    <div class="color-name">Coral Container</div>
+                    <div class="color-hex">#FDDAD1</div>
+                    <div class="color-role">colorErrorContainer</div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Neutrals &amp; Surface</h3>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background:#264653;"></div>
+                <div class="color-info">
+                    <div class="color-name">Dark Slate</div>
+                    <div class="color-hex">#264653</div>
+                    <div class="color-role">dark backgrounds</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#FAFDF7; border: 1px solid #E0E4DD;"></div>
+                <div class="color-info">
+                    <div class="color-name">Surface</div>
+                    <div class="color-hex">#FAFDF7</div>
+                    <div class="color-role">colorSurface</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#1A1C19;"></div>
+                <div class="color-info">
+                    <div class="color-name">On Surface</div>
+                    <div class="color-hex">#1A1C19</div>
+                    <div class="color-role">colorOnSurface</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#E0E4DD;"></div>
+                <div class="color-info">
+                    <div class="color-name">Surface Variant</div>
+                    <div class="color-hex">#E0E4DD</div>
+                    <div class="color-role">colorSurfaceVariant</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#44483F;"></div>
+                <div class="color-info">
+                    <div class="color-name">On Surface Variant</div>
+                    <div class="color-hex">#44483F</div>
+                    <div class="color-role">colorOnSurfaceVariant</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#F1FAEE;"></div>
+                <div class="color-info">
+                    <div class="color-name">Off White</div>
+                    <div class="color-hex">#F1FAEE</div>
+                    <div class="color-role">light backgrounds</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#74796D;"></div>
+                <div class="color-info">
+                    <div class="color-name">Outline</div>
+                    <div class="color-hex">#74796D</div>
+                    <div class="color-role">colorOutline</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#C4C8BB;"></div>
+                <div class="color-info">
+                    <div class="color-name">Outline Variant</div>
+                    <div class="color-hex">#C4C8BB</div>
+                    <div class="color-role">colorOutlineVariant</div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Utility</h3>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background:#4CAF50;"></div>
+                <div class="color-info">
+                    <div class="color-name">Success Green</div>
+                    <div class="color-hex">#4CAF50</div>
+                    <div class="color-role">success states</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#FFC107;"></div>
+                <div class="color-info">
+                    <div class="color-name">Warning Amber</div>
+                    <div class="color-hex">#FFC107</div>
+                    <div class="color-role">warning states</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#FFB300;"></div>
+                <div class="color-info">
+                    <div class="color-name">Rating Star</div>
+                    <div class="color-hex">#FFB300</div>
+                    <div class="color-role">star ratings</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background:#8AB4F8;"></div>
+                <div class="color-info">
+                    <div class="color-name">Light Blue</div>
+                    <div class="color-hex">#8AB4F8</div>
+                    <div class="color-role">info / links</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TYPOGRAPHY ===================== -->
+    <section>
+        <h2>Typography</h2>
+        <p class="section-subtitle">Material Design 3 type scale — Roboto, sizes in sp (equivalent to px on web)</p>
+
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Display Large</div>
+                <div class="spec">57sp / 300</div>
+            </div>
+            <div class="type-sample" style="font-size:57px; font-weight:300; line-height:1.12;">iTravel</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Display Medium</div>
+                <div class="spec">45sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:45px; font-weight:400; line-height:1.15;">Discover</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Display Small</div>
+                <div class="spec">36sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:36px; font-weight:400; line-height:1.22;">Welcome</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Headline Large</div>
+                <div class="spec">32sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:32px; font-weight:400; line-height:1.25;">Machu Picchu</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Headline Medium</div>
+                <div class="spec">28sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:28px; font-weight:400; line-height:1.29;">Profile</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Headline Small</div>
+                <div class="spec">24sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:24px; font-weight:400; line-height:1.33;">Write a Review</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Title Large</div>
+                <div class="spec">22sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:22px; font-weight:400; line-height:1.27;">Santorini Caldera</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Title Medium</div>
+                <div class="spec">16sp / 500</div>
+            </div>
+            <div class="type-sample" style="font-size:16px; font-weight:500; line-height:1.5;">About this place</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Title Small</div>
+                <div class="spec">14sp / 500</div>
+            </div>
+            <div class="type-sample" style="font-size:14px; font-weight:500; line-height:1.43;">My Reviews</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Body Large</div>
+                <div class="spec">16sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:16px; font-weight:400; line-height:1.5;">Ancient amphitheatre and icon of Imperial Rome, the Colosseum once held spectacular public events.</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Body Medium</div>
+                <div class="spec">14sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:14px; font-weight:400; line-height:1.43;">Michelin-starred French cuisine in an elegant setting near the Champs-Elysees.</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Body Small</div>
+                <div class="spec">12sp / 400</div>
+            </div>
+            <div class="type-sample" style="font-size:12px; font-weight:400; line-height:1.33;">Posted 2 days ago &middot; 4.5 stars</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Label Large</div>
+                <div class="spec">14sp / 500</div>
+            </div>
+            <div class="type-sample" style="font-size:14px; font-weight:500; line-height:1.43; letter-spacing:0.5px;">POST REVIEW</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Label Medium</div>
+                <div class="spec">12sp / 500</div>
+            </div>
+            <div class="type-sample" style="font-size:12px; font-weight:500; line-height:1.33; letter-spacing:0.5px;">RESTAURANT</div>
+        </div>
+        <div class="type-row">
+            <div class="type-meta">
+                <div class="name">Label Small</div>
+                <div class="spec">11sp / 500</div>
+            </div>
+            <div class="type-sample" style="font-size:11px; font-weight:500; line-height:1.45; letter-spacing:0.5px;">12 REVIEWS</div>
+        </div>
+    </section>
+
+    <!-- ===================== SPACING ===================== -->
+    <section>
+        <h2>Spacing Scale</h2>
+        <p class="section-subtitle">4dp base unit. Use these tokens instead of hard-coded values.</p>
+
+        <div class="spacing-grid">
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:16px; height:16px;"></div>
+                <div class="spacing-label">xxs</div>
+                <div class="spacing-value">2dp</div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:20px; height:20px;"></div>
+                <div class="spacing-label">xs</div>
+                <div class="spacing-value">4dp</div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:28px; height:28px;"></div>
+                <div class="spacing-label">sm</div>
+                <div class="spacing-value">8dp</div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:36px; height:36px;"></div>
+                <div class="spacing-label">md</div>
+                <div class="spacing-value">12dp</div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:44px; height:44px;"></div>
+                <div class="spacing-label">base</div>
+                <div class="spacing-value">16dp</div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:56px; height:56px;"></div>
+                <div class="spacing-label">lg</div>
+                <div class="spacing-value">24dp</div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:68px; height:68px;"></div>
+                <div class="spacing-label">xl</div>
+                <div class="spacing-value">32dp</div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:84px; height:84px;"></div>
+                <div class="spacing-label">xxl</div>
+                <div class="spacing-value">48dp</div>
+            </div>
+            <div class="spacing-item">
+                <div class="spacing-block" style="width:100px; height:100px;"></div>
+                <div class="spacing-label">xxxl</div>
+                <div class="spacing-value">64dp</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SHAPE / RADII ===================== -->
+    <section>
+        <h2>Shape System</h2>
+        <p class="section-subtitle">Corner radii for different component sizes</p>
+
+        <div class="radius-grid">
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius:8px;"></div>
+                <div class="radius-label">Small</div>
+                <div class="radius-value">8dp — Chips, small cards</div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius:12px;"></div>
+                <div class="radius-label">Medium</div>
+                <div class="radius-value">12dp — Cards, dialogs, buttons</div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius:16px;"></div>
+                <div class="radius-label">Large</div>
+                <div class="radius-value">16dp — Feed cards, sheets</div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius:28px;"></div>
+                <div class="radius-label">Extra Large</div>
+                <div class="radius-value">28dp — FABs, pills</div>
+            </div>
+            <div class="radius-item">
+                <div class="radius-box" style="border-radius:50%;"></div>
+                <div class="radius-label">Full</div>
+                <div class="radius-value">50% — Avatars, circles</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ELEVATION ===================== -->
+    <section>
+        <h2>Elevation</h2>
+        <p class="section-subtitle">Shadow levels for depth hierarchy</p>
+
+        <div class="elevation-grid">
+            <div class="elevation-card" style="box-shadow: none; border: 1px solid var(--outline-variant);">
+                <div class="label">Level 0</div>
+                <div class="value">0dp</div>
+            </div>
+            <div class="elevation-card" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.06);">
+                <div class="label">Level 1</div>
+                <div class="value">1dp</div>
+            </div>
+            <div class="elevation-card" style="box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.08);">
+                <div class="label">Level 2</div>
+                <div class="value">3dp</div>
+            </div>
+            <div class="elevation-card" style="box-shadow: 0 3px 6px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.10);">
+                <div class="label">Level 3</div>
+                <div class="value">6dp</div>
+            </div>
+            <div class="elevation-card" style="box-shadow: 0 4px 8px rgba(0,0,0,0.18), 0 6px 18px rgba(0,0,0,0.12);">
+                <div class="label">Level 4</div>
+                <div class="value">8dp</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== COMPONENTS ===================== -->
+    <section>
+        <h2>Components</h2>
+        <p class="section-subtitle">Core UI components using the iTravel design tokens</p>
+
+        <h3>Buttons</h3>
+        <div class="component-row">
+            <button class="btn btn-primary">Login</button>
+            <button class="btn btn-secondary">Register</button>
+            <button class="btn btn-outlined">Edit Profile</button>
+            <button class="btn btn-text">Cancel</button>
+            <button class="btn btn-coral">Logout</button>
+        </div>
+
+        <h3>Category Chips</h3>
+        <div class="component-row">
+            <span class="chip selected"><span class="chip-icon">&#x2731;</span> All</span>
+            <span class="chip"><span class="chip-icon">&#x1F374;</span> Restaurant</span>
+            <span class="chip"><span class="chip-icon">&#x1F3E8;</span> Hotel</span>
+            <span class="chip"><span class="chip-icon">&#x1F3DB;</span> Attraction</span>
+            <span class="chip"><span class="chip-icon">&#x1F333;</span> Nature</span>
+        </div>
+
+        <h3>Text Fields</h3>
+        <div class="component-row" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+            <div class="text-field">
+                <label>Email</label>
+                <input type="text" value="traveler@example.com">
+            </div>
+            <div class="text-field">
+                <label>Password</label>
+                <input type="password" value="secretpassword">
+            </div>
+        </div>
+
+        <h3>Rating</h3>
+        <div class="component-row">
+            <div class="rating">
+                <span class="star filled">&#9733;</span>
+                <span class="star filled">&#9733;</span>
+                <span class="star filled">&#9733;</span>
+                <span class="star filled">&#9733;</span>
+                <span class="star">&#9733;</span>
+            </div>
+            <span style="font-size:14px; color:var(--on-surface-variant); margin-left:8px;">4.0 (12 reviews)</span>
+        </div>
+
+        <h3>Cards</h3>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-img">
+                    <div class="gradient-overlay"></div>
+                    <span class="card-title-overlay">Santorini Caldera</span>
+                </div>
+                <div class="card-body">
+                    <p>Volcanic caldera with dramatic cliffs and stunning sunsets over the Aegean Sea.</p>
+                    <div style="margin-top:12px; display:flex; justify-content:space-between; align-items:center;">
+                        <div class="rating" style="gap:2px;">
+                            <span class="star filled" style="font-size:16px;">&#9733;</span>
+                            <span class="star filled" style="font-size:16px;">&#9733;</span>
+                            <span class="star filled" style="font-size:16px;">&#9733;</span>
+                            <span class="star filled" style="font-size:16px;">&#9733;</span>
+                            <span class="star" style="font-size:16px;">&#9733;</span>
+                        </div>
+                        <span style="font-size:20px; color:var(--coral-action); cursor:pointer;">&#9825;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-outlined">
+                <div class="card-body">
+                    <div style="display:flex; gap:12px; align-items:start;">
+                        <div style="width:40px; height:40px; border-radius:50%; background:var(--dark-slate); color:white; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">JD</div>
+                        <div style="flex:1;">
+                            <div style="font-size:14px; font-weight:500;">Jane Doe</div>
+                            <div class="rating" style="gap:1px; margin:4px 0;">
+                                <span class="star filled" style="font-size:14px;">&#9733;</span>
+                                <span class="star filled" style="font-size:14px;">&#9733;</span>
+                                <span class="star filled" style="font-size:14px;">&#9733;</span>
+                                <span class="star filled" style="font-size:14px;">&#9733;</span>
+                                <span class="star filled" style="font-size:14px;">&#9733;</span>
+                            </div>
+                            <p style="font-size:14px; color:var(--on-surface-variant); margin-top:4px;">Absolutely breathtaking views! The sunset from Oia was the highlight of our entire trip.</p>
+                            <div style="font-size:11px; color:var(--outline); margin-top:6px;">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Bottom Navigation</h3>
+        <div class="bottom-nav">
+            <div class="nav-item active">
+                <span class="nav-icon">&#x1F5FA;</span>
+                <span class="nav-label">Discover</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">&#x1F4F0;</span>
+                <span class="nav-label">Feed</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">&#x1F464;</span>
+                <span class="nav-label">Profile</span>
+            </div>
+        </div>
+
+        <h3 style="margin-top:40px;">Profile Header</h3>
+        <div class="profile-preview">
+            <div class="avatar">JD</div>
+            <div class="profile-name">Jane Doe</div>
+            <div class="profile-email">jane@example.com</div>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Reviews</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Visited</div>
+                </div>
+                <div class="stat-card rating">
+                    <div class="stat-value">4.3</div>
+                    <div class="stat-label">Avg Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer style="text-align:center; padding:32px; color:var(--on-surface-variant); font-size:13px; border-top:1px solid var(--outline-variant);">
+    iTravel V2 Design System &middot; Material Design 3 &middot; Android (Java + XML)
+</footer>
+
+</body>
+</html>
