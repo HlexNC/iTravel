@@ -1,20 +1,65 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="Base.Theme.ITravel" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
+        <!-- Primary -->
         <item name="colorPrimary">@color/teal_primary</item>
-        <item name="colorPrimaryVariant">@color/teal_secondary</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/teal_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+
+        <!-- Secondary -->
         <item name="colorSecondary">@color/orange_accent</item>
-        <item name="colorSecondaryVariant">@color/coral_action</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/orange_accent_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_secondary_container</item>
+
+        <!-- Tertiary -->
+        <item name="colorTertiary">@color/teal_secondary</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <item name="colorTertiaryContainer">@color/teal_tertiary_container</item>
+
+        <!-- Error -->
+        <item name="colorError">@color/coral_action</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">@color/coral_action_container</item>
+
+        <!-- Surface -->
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+
+        <!-- Outline -->
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outline_variant</item>
+
+        <!-- System bars -->
+        <item name="android:statusBarColor">@color/teal_primary_dark</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+
+        <!-- Shape overrides -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.ITravel.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.ITravel.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.ITravel.LargeComponent</item>
     </style>
 
     <style name="Theme.ITravel" parent="Base.Theme.ITravel" />
-    
+
     <style name="Theme.ITravel.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Shape appearances -->
+    <style name="ShapeAppearance.ITravel.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">@dimen/radius_sm</item>
+    </style>
+
+    <style name="ShapeAppearance.ITravel.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSize">@dimen/radius_md</item>
+    </style>
+
+    <style name="ShapeAppearance.ITravel.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerSize">@dimen/radius_lg</item>
     </style>
 </resources>
