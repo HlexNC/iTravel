@@ -176,6 +176,8 @@ public class LocationDetailActivity extends AppCompatActivity {
             AddReviewFragment fragment = new AddReviewFragment();
             fragment.setArguments(args);
 
+            fabWriteReview.hide();
+
             getSupportFragmentManager().beginTransaction()
                     .setCustomAnimations(
                             R.anim.slide_in_right, R.anim.slide_out_left,
@@ -183,6 +185,13 @@ public class LocationDetailActivity extends AppCompatActivity {
                     .replace(R.id.coordinatorLayout, fragment)
                     .addToBackStack(null)
                     .commit();
+        });
+
+        // Show FAB again when returning from AddReviewFragment
+        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
+            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+                fabWriteReview.show();
+            }
         });
     }
 
