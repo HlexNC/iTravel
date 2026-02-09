@@ -2,3 +2,7 @@
 	path = docs
 	url = https://github.com/HlexNC/iTravel.wiki.git
 	branch = master
+[submodule "legacy"]
+	path = legacy
+	url = https://github.com/HlexNC/iTravel-v0.git
+	branch = master
