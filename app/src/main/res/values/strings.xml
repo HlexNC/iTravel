@@ -15,4 +15,22 @@
     <string name="nav_add_review">Add Review</string>
     <string name="nav_feed">Feed</string>
     <string name="nav_profile">Profile</string>
+
+    <!-- Categories -->
+    <string name="category_all">All</string>
+    <string name="category_restaurant">Restaurant</string>
+    <string name="category_hotel">Hotel</string>
+    <string name="category_attraction">Attraction</string>
+    <string name="category_nature">Nature</string>
+
+    <!-- Auth errors -->
+    <string name="error_invalid_email">Please enter a valid email</string>
+    <string name="error_invalid_password">Password must be at least 6 characters</string>
+    <string name="error_login_failed">Invalid email or password</string>
+    <string name="error_email_taken">An account with this email already exists</string>
+    <string name="error_registration_failed">Registration failed. Please try again.</string>
+
+    <!-- Placeholders -->
+    <string name="search_coming_soon">Search - Coming Soon</string>
+    <string name="logout">Logout</string>
 </resources>

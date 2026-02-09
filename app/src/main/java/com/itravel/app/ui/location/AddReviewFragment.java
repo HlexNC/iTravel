@@ -1,4 +1,4 @@
-package com.itravel.app.fragments;
+package com.itravel.app.ui.location;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,15 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import com.itravel.app.R;
-import com.itravel.app.utils.ValidationUtils;
+import com.itravel.app.util.ValidationUtils;
 
 public class AddReviewFragment extends Fragment {
 
@@ -23,7 +24,6 @@ public class AddReviewFragment extends Fragment {
     private TextView tvGpsStatus;
     private Button btnSubmit;
 
-    // Mock location check for MVP
     private boolean isLocationValid = true;
 
     @Nullable
@@ -42,7 +42,6 @@ public class AddReviewFragment extends Fragment {
         tvGpsStatus = view.findViewById(R.id.tvGpsStatus);
         btnSubmit = view.findViewById(R.id.btnSubmitReview);
 
-        // Simulate GPS Check
         tvGpsStatus.setText("Location Verified (Mock)");
         tvGpsStatus.setTextColor(getResources().getColor(android.R.color.holo_green_dark, null));
 
@@ -67,10 +66,8 @@ public class AddReviewFragment extends Fragment {
             return;
         }
 
-        // TODO: Submit to Backend/DB
         Toast.makeText(getContext(), "Review Submitted!", Toast.LENGTH_LONG).show();
 
-        // Reset or navigate back
         etReview.setText("");
         ratingBar.setRating(0);
     }
