@@ -7,13 +7,29 @@
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.itravel.app.ui.discover.DiscoverFragment"
-        android:label="DiscoverFragment" />
-        
+        android:label="DiscoverFragment">
+        <action
+            android:id="@+id/action_discover_to_feed"
+            app:destination="@id/feedFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.itravel.app.ui.feed.FeedFragment"
-        android:label="FeedFragment" />
-        
+        android:label="FeedFragment">
+        <action
+            android:id="@+id/action_feed_to_profile"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.itravel.app.ui.profile.ProfileFragment"

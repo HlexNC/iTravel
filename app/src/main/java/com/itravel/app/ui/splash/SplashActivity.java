@@ -1,9 +1,12 @@
 package com.itravel.app.ui.splash;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +21,14 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        View splashContent = findViewById(R.id.layoutSplashContent);
+
+        // Fade-in animation for logo and title
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(splashContent, "alpha", 0f, 1f);
+        fadeIn.setDuration(800);
+        fadeIn.setInterpolator(new DecelerateInterpolator());
+        fadeIn.start();
+
         SessionManager sessionManager = new SessionManager(this);
 
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
@@ -29,6 +40,7 @@ public class SplashActivity extends AppCompatActivity {
             }
             startActivity(intent);
             finish();
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         }, 2000);
     }
 }
