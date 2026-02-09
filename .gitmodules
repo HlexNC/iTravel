@@ -1,5 +1,5 @@
-[submodule "legacy/iTravel-v0"]
-	path = legacy/iTravel-v0
+[submodule "legacy"]
+	path = legacy
 	url = https://github.com/HlexNC/iTravel-v0.git
 	branch = master
 
