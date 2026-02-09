@@ -2,8 +2,19 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ITravel" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/teal_primary</item>
+        <item name="colorPrimaryVariant">@color/teal_secondary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/orange_accent</item>
+        <item name="colorSecondaryVariant">@color/coral_action</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="Theme.ITravel" parent="Base.Theme.ITravel" />
+    
+    <style name="Theme.ITravel.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
