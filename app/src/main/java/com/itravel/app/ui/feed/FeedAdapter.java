@@ -1,15 +1,18 @@
-package com.itravel.app.adapters;
+package com.itravel.app.ui.feed;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.itravel.app.R;
-import com.itravel.app.models.FeedItem;
+import com.itravel.app.model.FeedItem;
+
 import java.util.List;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder> {
@@ -18,6 +21,11 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
 
     public FeedAdapter(List<FeedItem> feedItems) {
         this.feedItems = feedItems;
+    }
+
+    public void updateItems(List<FeedItem> newItems) {
+        this.feedItems = newItems;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -40,7 +48,6 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
                 .centerCrop()
                 .into(holder.ivFeedImage);
 
-        // Weather Binding
         if (item.getWeatherTemp() != null) {
             holder.layoutWeather.setVisibility(View.VISIBLE);
             holder.tvWeatherTemp.setText(item.getWeatherTemp());

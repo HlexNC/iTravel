@@ -1,12 +1,13 @@
-package com.itravel.app.activities;
+package com.itravel.app.ui.location;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.itravel.app.R;
-import com.itravel.app.fragments.AddReviewFragment;
 
 public class LocationDetailActivity extends AppCompatActivity {
     @Override
@@ -22,7 +23,6 @@ public class LocationDetailActivity extends AppCompatActivity {
 
         Button btnWriteReview = findViewById(R.id.btnWriteReview);
         btnWriteReview.setOnClickListener(v -> {
-            // Hide the detail view elements and show the fragment
             tvTitle.setVisibility(View.GONE);
             btnWriteReview.setVisibility(View.GONE);
 

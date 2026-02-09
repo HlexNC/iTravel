@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.itravel.app.fragments.WelcomeFragment"
+        android:name="com.itravel.app.ui.auth.WelcomeFragment"
         android:label="WelcomeFragment">
         <action
             android:id="@+id/action_welcome_to_login"
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.itravel.app.fragments.LoginFragment"
+        android:name="com.itravel.app.ui.auth.LoginFragment"
         android:label="LoginFragment">
         <action
             android:id="@+id/action_login_to_register"
@@ -27,6 +27,6 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.itravel.app.fragments.RegisterFragment"
+        android:name="com.itravel.app.ui.auth.RegisterFragment"
         android:label="RegisterFragment" />
 </navigation>

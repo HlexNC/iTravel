@@ -26,10 +26,10 @@
         
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY_HERE" />
+            android:value="${mapsApiKey}" />
 
         <activity
-            android:name=".activities.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.ITravel.NoActionBar">
             <intent-filter>
@@ -37,10 +37,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity android:name=".activities.AuthActivity" android:exported="false" />
-        <activity android:name=".activities.MainActivity" android:exported="false" />
-        <activity android:name=".activities.LocationDetailActivity" android:exported="false" />
+
+        <activity android:name=".ui.auth.AuthActivity" android:exported="false" />
+        <activity android:name=".ui.main.MainActivity" android:exported="false" />
+        <activity android:name=".ui.location.LocationDetailActivity" android:exported="false" />
     </application>
 
 </manifest>
