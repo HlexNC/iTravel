@@ -43,7 +43,7 @@ Whether you're planning your next trip or reminiscing about your last one, iTrav
 ## How It Works
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Open the App"] --> B["Sign Up or Log In"]
     B --> C["Explore"]
 
