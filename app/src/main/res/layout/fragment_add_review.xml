@@ -1,87 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:background="@color/surface">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarReview"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/surface"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/write_a_review"
+        app:titleTextColor="@color/on_surface" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_base">
+
+            <!-- GPS Status -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="@dimen/spacing_base">
+
+                <ImageView
+                    android:id="@+id/ivGpsIcon"
+                    android:layout_width="@dimen/icon_size_sm"
+                    android:layout_height="@dimen/icon_size_sm"
+                    android:src="@drawable/ic_location_pin"
+                    android:importantForAccessibility="no"
+                    app:tint="@color/success_green" />
+
+                <TextView
+                    android:id="@+id/tvGpsStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/checking_location"
+                    android:textSize="@dimen/text_body_small"
+                    android:textColor="@color/on_surface_variant"
+                    android:layout_marginStart="@dimen/spacing_sm" />
+
+            </LinearLayout>
+
+            <!-- Rating -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your Rating"
+                android:textSize="@dimen/text_body"
+                android:textStyle="bold"
+                android:textColor="@color/on_surface"
+                android:layout_marginBottom="@dimen/spacing_sm" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_lg"
+                android:progressTint="@color/rating_star"
+                android:secondaryProgressTint="@color/outline_variant"
+                style="@android:style/Widget.Material.RatingBar" />
+
+            <!-- Review text -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilReview"
+                style="@style/Widget.ITravel.TextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/review_hint"
+                app:counterEnabled="true"
+                app:counterMaxLength="500"
+                android:layout_marginBottom="@dimen/spacing_base">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etReview"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:maxLength="500" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Add Photo button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddPhoto"
+                style="@style/Widget.ITravel.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_photo"
+                app:icon="@drawable/ic_camera"
+                app:iconGravity="textStart"
+                android:layout_marginBottom="@dimen/spacing_md" />
+
+            <!-- Photo preview -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPhotoPreview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:cardCornerRadius="@dimen/radius_md"
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/spacing_base">
+
+                <ImageView
+                    android:id="@+id/ivPhotoPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:importantForAccessibility="no" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Submit button fixed at bottom -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubmitReview"
+        style="@style/Widget.ITravel.Button.Primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:text="@string/post_review"
+        android:layout_margin="@dimen/spacing_base" />
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Write a Review"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvGpsStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Checking Location..."
-            android:textColor="@android:color/holo_red_dark"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-            android:layout_marginTop="8dp" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvGpsStatus" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilReview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Share your experience (min 50 chars)"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/ratingBar">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etReview"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:gravity="top|start"
-                android:inputType="textMultiLine" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/btnAddPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Photo"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tilReview" />
-
-        <ImageView
-            android:id="@+id/ivPhotoPreview"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="#EEE"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnAddPhoto" />
-
-        <Button
-            android:id="@+id/btnSubmitReview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Post Review"
-            android:backgroundTint="@color/teal_primary"
-            android:layout_marginTop="32dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivPhotoPreview"
-            app:layout_constraintVertical_bias="1.0" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</LinearLayout>

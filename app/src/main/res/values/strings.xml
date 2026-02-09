@@ -1,14 +1,20 @@
 <resources>
     <string name="app_name">iTravel</string>
     <string name="welcome_slogan">Von Travelern für Traveler</string>
-    
+
     <!-- Auth -->
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="name">Name</string>
     <string name="forgot_password">Forgot Password?</string>
-    
+    <string name="welcome_back">Welcome Back</string>
+    <string name="create_account">Create Account</string>
+    <string name="no_account_register">Don\'t have an account? Register</string>
+    <string name="welcome_subtitle">Discover amazing places around the world, share your experiences, and connect with fellow travelers.</string>
+    <string name="password_helper">Minimum 6 characters</string>
+
     <!-- Navigation -->
     <string name="nav_discover">Discover</string>
     <string name="nav_search">Search</string>
@@ -29,6 +35,43 @@
     <string name="error_login_failed">Invalid email or password</string>
     <string name="error_email_taken">An account with this email already exists</string>
     <string name="error_registration_failed">Registration failed. Please try again.</string>
+    <string name="error_name_required">Please enter your name</string>
+
+    <!-- Location Detail -->
+    <string name="write_review">Write Review</string>
+    <string name="reviews">Reviews</string>
+    <string name="no_reviews_yet">No reviews yet</string>
+    <string name="be_first_reviewer">Be the first to share your experience!</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
+    <string name="map">Map</string>
+    <string name="review_count">%d reviews</string>
+
+    <!-- Profile -->
+    <string name="edit_profile">Edit Profile</string>
+    <string name="my_reviews">My Reviews</string>
+    <string name="reviews_count">Reviews</string>
+    <string name="locations_visited">Visited</string>
+    <string name="avg_rating">Avg Rating</string>
+    <string name="no_reviews_profile">You haven\'t written any reviews yet</string>
+    <string name="start_exploring">Start exploring and share your experiences!</string>
+    <string name="about_itravel">About iTravel</string>
+    <string name="app_version">App Version</string>
+    <string name="settings">Settings</string>
+
+    <!-- Add Review -->
+    <string name="write_a_review">Write a Review</string>
+    <string name="review_hint">Share your experience (min 50 chars)</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="post_review">Post Review</string>
+    <string name="location_verified">Location Verified</string>
+    <string name="checking_location">Checking Location…</string>
+
+    <!-- Feed -->
+    <string name="feed_empty_title">No posts yet</string>
+    <string name="feed_empty_subtitle">Pull down to refresh and discover new content</string>
+    <string name="feed_error_title">Something went wrong</string>
+    <string name="retry">Retry</string>
 
     <!-- Placeholders -->
     <string name="search_coming_soon">Search - Coming Soon</string>

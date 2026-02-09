@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/teal_primary">
@@ -8,19 +9,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/auth_bg"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:importantForAccessibility="no" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#40000000" />
+        android:background="@color/scrim_light" />
 
     <LinearLayout
+        android:id="@+id/layoutSplashContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:alpha="0"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,17 +33,18 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/app_logo"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="@dimen/spacing_base"
+            android:importantForAccessibility="no" />
 
         <TextView
             android:id="@+id/tvAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="iTravel"
-            android:textSize="48sp"
+            android:text="@string/app_name"
+            android:textSize="@dimen/text_display"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:shadowColor="#80000000"
+            android:shadowColor="@color/scrim_medium"
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="4" />
@@ -48,13 +52,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="by Santiago Cardona"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            android:layout_marginTop="32dp"
-            android:alpha="0.9"
-            android:textStyle="italic" />
+            android:text="@string/welcome_slogan"
+            android:textSize="@dimen/text_body"
+            android:textColor="@color/off_white"
+            android:layout_marginTop="@dimen/spacing_sm"
+            android:alpha="0.9" />
 
     </LinearLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressSplash"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_xxxl"
+        android:layout_marginBottom="@dimen/spacing_xxl"
+        android:indeterminate="true"
+        app:trackColor="@color/scrim_light"
+        app:indicatorColor="@color/white"
+        app:trackCornerRadius="@dimen/radius_sm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
