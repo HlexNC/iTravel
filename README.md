@@ -121,7 +121,7 @@ You'll need an **Android phone** running version 8.0 or newer (most phones from 
 
 | Version | What Changed |
 |---------|-------------|
-| **V0** | Original prototype — partially built by a different developer. Kept in `legacy/` for reference. |
+| **V0** | Original prototype — partially built by @Engineer1080. Kept in `legacy/` for reference. |
 | **V1** | Complete rewrite from scratch. New design, new features, modern architecture. **You are here.** |
 
 ---
@@ -135,7 +135,8 @@ The [project wiki](https://github.com/HlexNC/iTravel/wiki) has everything else �
 ## Academic Project
 
 > [!NOTE]
-> Built as part of the **Software Engineering** course at the **Deggendorf Institute of Technology (DIT)**.
+> Built as part of the **Media Technology** major at the **Deggendorf Institute of Technology (DIT)**.
+<!-- PS: Not my major, did it as a personal favor for a friend. I just wanted to build a cool travel app and learn Android development along the way. -->
 
 ---
 
