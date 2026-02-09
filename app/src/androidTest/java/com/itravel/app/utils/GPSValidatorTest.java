@@ -1,4 +1,4 @@
-package com.itravel.app.utils;
+package com.itravel.app.util;
 
 import android.location.Location;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
