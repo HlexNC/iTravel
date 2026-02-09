@@ -36,7 +36,7 @@ iTravel is a travel companion app for Android. Browse 20 hand-picked destination
 Whether you're planning your next trip or reminiscing about your last one, iTravel puts the world at your fingertips.
 
 > [!NOTE]
-> **This is V1** — a complete rewrite of the original prototype (V0), which was partially built by a different developer and is kept in the `legacy/` folder for reference.
+> **This is V1** — a complete rewrite of the original prototype (V0), which was partially built by a @Engineer1080 and his AI companion and is kept in the `legacy/` folder for reference.
 
 ---
 
