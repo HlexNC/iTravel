@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,8 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.itravel.app.R;
 import com.itravel.app.ui.main.MainActivity;
 import com.itravel.app.util.ValidationUtils;
@@ -37,23 +39,32 @@ public class LoginFragment extends Fragment {
 
         viewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
 
+        TextInputLayout tilEmail = view.findViewById(R.id.tilEmail);
+        TextInputLayout tilPassword = view.findViewById(R.id.tilPassword);
         TextInputEditText etEmail = view.findViewById(R.id.etEmail);
         TextInputEditText etPassword = view.findViewById(R.id.etPassword);
-        Button btnDoLogin = view.findViewById(R.id.btnDoLogin);
+        MaterialButton btnDoLogin = view.findViewById(R.id.btnDoLogin);
+        CircularProgressIndicator progressLogin = view.findViewById(R.id.progressLogin);
         TextView tvGoToRegister = view.findViewById(R.id.tvGoToRegister);
 
         btnDoLogin.setOnClickListener(v -> {
+            tilEmail.setError(null);
+            tilPassword.setError(null);
+
             String email = etEmail.getText() != null ? etEmail.getText().toString().trim() : "";
             String password = etPassword.getText() != null ? etPassword.getText().toString() : "";
 
             if (!ValidationUtils.isValidEmail(email)) {
-                Snackbar.make(view, R.string.error_invalid_email, Snackbar.LENGTH_SHORT).show();
+                tilEmail.setError(getString(R.string.error_invalid_email));
                 return;
             }
             if (!ValidationUtils.isValidPassword(password)) {
-                Snackbar.make(view, R.string.error_invalid_password, Snackbar.LENGTH_SHORT).show();
+                tilPassword.setError(getString(R.string.error_invalid_password));
                 return;
             }
+
+            btnDoLogin.setEnabled(false);
+            progressLogin.setVisibility(View.VISIBLE);
 
             viewModel.login(email, password);
         });
@@ -63,6 +74,10 @@ public class LoginFragment extends Fragment {
 
         viewModel.getAuthResult().observe(getViewLifecycleOwner(), result -> {
             if (result == null) return;
+
+            btnDoLogin.setEnabled(true);
+            progressLogin.setVisibility(View.GONE);
+
             if (result.success) {
                 Intent intent = new Intent(requireActivity(), MainActivity.class);
                 startActivity(intent);

@@ -20,4 +20,13 @@ public interface ReviewDao {
 
     @Query("SELECT AVG(rating) FROM reviews WHERE locationId = :locationId")
     float getAverageRating(long locationId);
+
+    @Query("SELECT COUNT(*) FROM reviews WHERE userId = :userId")
+    int getReviewCountByUser(long userId);
+
+    @Query("SELECT COUNT(DISTINCT locationId) FROM reviews WHERE userId = :userId")
+    int getVisitedLocationCountByUser(long userId);
+
+    @Query("SELECT AVG(rating) FROM reviews WHERE userId = :userId")
+    float getAverageRatingByUser(long userId);
 }

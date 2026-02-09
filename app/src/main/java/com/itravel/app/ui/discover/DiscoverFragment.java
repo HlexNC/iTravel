@@ -79,6 +79,9 @@ public class DiscoverFragment extends Fragment implements OnMapReadyCallback {
                 intent.putExtra("location_id", locationId);
             }
             startActivity(intent);
+            if (getActivity() != null) {
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
             return true;
         });
 
