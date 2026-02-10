@@ -47,13 +47,13 @@ flowchart TD
     A["Open the App"] --> B["Sign Up or Log In"]
     B --> C["Explore"]
 
-    C --> D["🗺️ Discover\nBrowse the map"]
-    C --> E["📸 Feed\nTravel photos & weather"]
-    C --> F["👤 Profile\nYour reviews"]
+    C --> D["🗺️ Discover<br>Browse the map"]
+    C --> E["📸 Feed<br>Travel photos & weather"]
+    C --> F["👤 Profile<br>Your reviews"]
 
-    D --> G["📍 Tap a Location\nDetails · Weather · Reviews"]
-    G --> H["✍️ Leave a Review\nRate it · Add photos"]
-    G --> I["❤️ Save It\nLike your favorites"]
+    D --> G["📍 Tap a Location<br>Details · Weather · Reviews"]
+    G --> H["✍️ Leave a Review<br>Rate it · Add photos"]
+    G --> I["❤️ Save It<br>Like your favorites"]
 
     style A fill:#264653,color:#F1FAEE
     style B fill:#2A9D8F,color:#F1FAEE
